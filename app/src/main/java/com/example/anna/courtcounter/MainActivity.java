@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     TextView team_a_score;
     TextView team_b_score;
     View root;
-
+    static final String STATE_USER = "user";
+    private String mUser;
 
 
     @Override
@@ -32,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
         img.post(new Runnable() {
             @Override
             public void run() {
-                ((AnimationDrawable) img.getBackground()).start();}});}
+                ((AnimationDrawable) img.getBackground()).start();
+            }
+        });
+    }
 
-
-    public void three(View view) {
-        Ascore = Ascore + 3;
-        team_a_score.setText(String.valueOf(Ascore));
+    public void colorDisplay(int Ascore, int Bscore) {
         if (Ascore == Bscore) {
             root.setBackgroundColor(getResources().getColor(android.R.color.white));
         }
@@ -48,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         if (Ascore < Bscore) {
             root.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
         }
+    }
+
+    public void three(View view) {
+        Ascore = Ascore + 3;
+        team_a_score.setText(String.valueOf(Ascore));
+        colorDisplay( Ascore, Bscore);
 
 
     }
@@ -55,80 +62,34 @@ public class MainActivity extends AppCompatActivity {
     public void two(View view) {
         Ascore = Ascore + 2;
         team_a_score.setText(String.valueOf(Ascore));
-        if (Ascore == Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.white));
-        }
-
-        if (Ascore > Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
-        }
-        if (Ascore < Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-        }
+        colorDisplay( Ascore, Bscore);
 
     }
 
     public void one(View view) {
         Ascore = Ascore + 1;
         team_a_score.setText(String.valueOf(Ascore));
-
-        if (Ascore == Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.white));
-        }
-
-        if (Ascore > Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
-        }
-        if (Ascore < Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-        }
+        colorDisplay( Ascore, Bscore);
     }
 
     public void threeB(View view) {
         Bscore = Bscore + 3;
         team_b_score.setText(String.valueOf(Bscore));
-        if (Ascore == Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.white));
-        }
-
-        if (Ascore > Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
-        }
-        if (Ascore < Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-        }
+        colorDisplay( Ascore, Bscore);
 
     }
 
     public void twoB(View view) {
         Bscore = Bscore + 2;
         team_b_score.setText(String.valueOf(Bscore));
-        if (Ascore == Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.white));
-        }
-
-        if (Ascore > Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
-        }
-        if (Ascore < Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-        }
+        colorDisplay( Ascore, Bscore);
 
     }
 
     public void oneB(View view) {
         Bscore = Bscore + 1;
         team_b_score.setText(String.valueOf(Bscore));
-        if (Ascore == Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.white));
-        }
-
-        if (Ascore > Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
-        }
-        if (Ascore < Bscore) {
-            root.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-        }
+        colorDisplay( Ascore, Bscore);
     }
 
     public void reset(View view) {
@@ -139,4 +100,5 @@ public class MainActivity extends AppCompatActivity {
         if (Ascore == Bscore) {
             root.setBackgroundColor(getResources().getColor(android.R.color.white));
         }
-    }}
+    }
+}
